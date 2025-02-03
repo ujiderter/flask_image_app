@@ -1,0 +1,36 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+<!-- Заголовок страницы -->
+{% block title %}Обработка изображения{% endblock %}
+
+<!-- Блок content -->
+{% block content %}
+<div class="container">
+    <h1>Обработка изображения</h1>
+
+    <!-- Форма загрузки изображения -->
+    {{ wtf.quick_form(form, method='post', enctype="multipart/form-data", action="/") }}
+
+    <!-- Отображение результатов -->
+    <h2>Результаты:</h2>
+
+    <!-- Оригинальное изображение -->
+    {% if original_image %}
+        <h3>Начальное изображение:</h3>
+        <img src="{{ original_image }}" class="img-rounded" alt="Original Image" style="max-width: 300px;">
+    {% endif %}
+
+    <!-- Измененное изображение -->
+    {% if shifted_image %}
+        <h3>Обработанное изображение:</h3>
+        <img src="{{ shifted_image }}" class="img-rounded" alt="Shifted Image" style="max-width: 300px;">
+    {% endif %}
+
+    <!-- График распределения цветов -->
+    {% if plot_image %}
+        <h3>График распределения цветов:</h3>
+        <img src="{{ plot_image }}" class="img-rounded" alt="Color Distribution" style="max-width: 300px;">
+    {% endif %}
+</div>
+{% endblock %}
