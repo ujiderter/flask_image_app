@@ -1,9 +1,9 @@
 version: '{build}'
 image: Visual Studio 2019
-stack: python 3.7
+stack: python 3.9
 skip_branch_with_pr: true
 init:
-- cmd: set PATH=C:\Python37;C:\Python37\Scripts;%PATH%
+- cmd: set PATH=C:\Python39;C:\Python39\Scripts;%PATH%
 install:
 - ps: python -m pip install -r requirements.txt
 build: false
