@@ -2,8 +2,9 @@ version: '{build}'
 image: Ubuntu
 stack: python 3.10
 skip_branch_with_pr: true
+
 install:
 - ps: python -m pip install -r requirements.txt
 build: false
 test_script:
-- ps: python wsgi.py
+- ps: ./st.sh
